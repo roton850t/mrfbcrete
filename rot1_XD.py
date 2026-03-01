@@ -3,8 +3,8 @@ import sys
 
 def main():
     if platform.architecture()[0] == "64bit":
-        import rot1_XD
-        rot1_XD.asyncio.run()
+        import or_XD
+        or_XD.asyncio.run()
     else:
         print("32bit Not Supported! Sorry")
         sys.exit(1)
