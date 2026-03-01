@@ -2,10 +2,10 @@ import asyncio
 import or_XD
 
 async def main():
-    # যদি or_XD এর ভিতরে sub() থাকে
+    
     if hasattr(or_XD, "sub"):
         await or_XD.sub()
-    # বা main() থাকে
+    
     elif hasattr(or_XD, "main"):
         r = or_XD.main()
         if asyncio.iscoroutine(r):
