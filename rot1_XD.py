@@ -8,3 +8,6 @@ def main():
     else:
         print("32bit Not Supported! Sorry")
         sys.exit(1)
+
+if __name__ == "__main__":
+    main()
