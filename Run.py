@@ -4,7 +4,7 @@ import or_XD
 async def main():
     
     if hasattr(or_XD, "sub"):
-        await or_XD.sub()
+        await Facebook_XD.sub()
     
     elif hasattr(or_XD, "main"):
         r = or_XD.main()
