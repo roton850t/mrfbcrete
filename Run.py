@@ -1,13 +1,13 @@
 import asyncio
-import or_XD
+import Facebook_XD
 
 async def main():
     
-    if hasattr(or_XD, "sub"):
+    if hasattr(Facebook_XD, "sub"):
         await Facebook_XD.sub()
     
-    elif hasattr(or_XD, "main"):
-        r = or_XD.main()
+    elif hasattr(Facebook_XD, "main"):
+        r = Facebook_XD.main()
         if asyncio.iscoroutine(r):
             await r
     else:
