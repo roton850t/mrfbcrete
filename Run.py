@@ -6,7 +6,7 @@ def load_module():
     arch = platform.machine()
 
     if "aarch64" in arch or "64" in arch:
-        import Facebook_XD_64 as Facebook_XD
+        import Facebook_XD as Facebook_XD
     else:
         import Facebook_XD_32 as Facebook_XD
 
@@ -30,3 +30,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
