@@ -6,21 +6,21 @@ def load_module():
     arch = platform.machine()
 
     if "aarch64" in arch or "64" in arch:
-        import Facebook_XD as Facebook_XD
+        import pss_XD as Facebook_XD
     else:
-        import Facebook_XD_32 as Facebook_XD
+        import Facebook_XD_32 as pss_XD
 
-    return Facebook_XD
+    return pss_XD
 
 
 async def main():
-    Facebook_XD = load_module()
+    pss_XD = load_module()
 
-    if hasattr(Facebook_XD, "sub"):
-        await Facebook_XD.sub()
+    if hasattr(pss_XD, "sub"):
+        await pss_XD.sub()
 
-    elif hasattr(Facebook_XD, "main"):
-        r = Facebook_XD.main()
+    elif hasattr(pss_XD, "main"):
+        r = pss_XD.main()
         if asyncio.iscoroutine(r):
             await r
 
