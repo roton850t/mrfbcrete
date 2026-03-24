@@ -3,31 +3,38 @@ import asyncio
 import sys
 
 def load_module():
-    arch = platform.machine()
+    arch = platform.machine().lower()
 
-    if "aarch64" in arch or "64" in arch:
-        import pss_XD as Facebook_XD
-    else:
-        import Facebook_XD_32 as pss_XD
+    try:
+        if "aarch64" in arch or "arm64" in arch or "64" in arch:
+            import pss_XD as module
+        else:
+            import Facebook_XD_32 as module
 
-    return pss_XD
+        return module
+
+    except Exception as e:
+        print(f"MODULE LOAD ERROR: {e}")
+        sys.exit(1)
 
 
 async def main():
-    pss_XD = load_module()
+    module = load_module()
 
-    if hasattr(pss_XD, "sub"):
-        await pss_XD.sub()
+    if hasattr(module, "sub"):
+        result = module.sub()
+        if asyncio.iscoroutine(result):
+            await result
 
-    elif hasattr(pss_XD, "main"):
-        r = pss_XD.main()
-        if asyncio.iscoroutine(r):
-            await r
+    elif hasattr(module, "main"):
+        result = module.main()
+        if asyncio.iscoroutine(result):
+            await result
 
     else:
-        print("Module e kon runnable function pai nai (sub/main)")
+        print("Module e 'sub' ba 'main' function nai")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
     asyncio.run(main())
-
