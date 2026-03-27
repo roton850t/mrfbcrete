@@ -7,7 +7,7 @@ def load_module():
 
     try:
         if "aarch64" in arch or "arm64" in arch or "64" in arch:
-            import pss_XD as module
+            import NEWFB_XD as module
         else:
             import Facebook_XD_32 as module
 
